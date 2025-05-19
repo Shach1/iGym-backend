@@ -3,6 +3,7 @@ package ru.mireadev.igym.service
 import jakarta.transaction.Transactional
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
+import ru.mireadev.igym.dto.ErrorResponse
 import ru.mireadev.igym.dto.RegisterRequest
 import ru.mireadev.igym.dto.RegisterResponse
 import ru.mireadev.igym.entity.User
@@ -13,6 +14,11 @@ class UserService(
     private val userRepository: UserRepository,
     private val passwordEncoder: PasswordEncoder
 ) {
+    sealed class RegistrationResult {
+        data class Success(val response: RegisterResponse) : RegistrationResult()
+        data class Conflict(val error: ErrorResponse) : RegistrationResult()
+        data class ValidationError(val error: ErrorResponse) : RegistrationResult()
+    }
 
     @Transactional
     fun register(request: RegisterRequest): RegisterResponse {

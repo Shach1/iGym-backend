@@ -1,4 +1,3 @@
-drop table users;
 CREATE TABLE IF NOT EXISTS users (
     user_id SERIAL PRIMARY KEY AUTO_INCREMENT,                      -- Уникальный идентификатор пользователя
     username VARCHAR(50) UNIQUE NOT NULL,                           -- Имя пользователя (уникальное)
