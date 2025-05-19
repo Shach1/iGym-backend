@@ -26,18 +26,18 @@ class SecurityConfig(
             .csrf { it.disable() }
             .authorizeHttpRequests { auth ->
                 auth
-                    .anyRequest().permitAll()
-//                    // Публичные эндпоинты
-//                    .requestMatchers(
-//                        "/api/auth/**",
-//                        "/api/test-auth/public",
-//                        "/v3/api-docs/**",
-//                        "/swagger-ui/**",
-//                        "/swagger-resources/**",
-//                        "/swagger-ui.html"
-//                    ).permitAll()
-//                    // Все остальные запросы требуют аутентификации
-//                    .anyRequest().authenticated()
+                    //.anyRequest().permitAll()
+                    // Публичные эндпоинты
+                    .requestMatchers(
+                        "/api/auth/**",
+                        "/api/test-auth/public",
+                        "/v3/api-docs/**",
+                        "/swagger-ui/**",
+                        "/swagger-resources/**",
+                        "/swagger-ui.html"
+                    ).permitAll()
+                    // Все остальные запросы требуют аутентификации
+                    .anyRequest().authenticated()
 
             }
             .sessionManagement { session ->
