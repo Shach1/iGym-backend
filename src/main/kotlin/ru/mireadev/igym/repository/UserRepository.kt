@@ -6,4 +6,5 @@ import ru.mireadev.igym.entity.User
 interface UserRepository : JpaRepository<User, Long> {
     fun existsByUsername(username: String): Boolean
     fun existsByEmail(email: String): Boolean
+    fun findByEmail(email: String): User?
 }
