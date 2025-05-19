@@ -4,7 +4,7 @@ import jakarta.transaction.Transactional
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 import ru.mireadev.igym.dto.RegisterRequest
-import ru.mireadev.igym.dto.UserResponse
+import ru.mireadev.igym.dto.RegisterResponse
 import ru.mireadev.igym.entity.User
 import ru.mireadev.igym.repository.UserRepository
 
@@ -15,7 +15,7 @@ class UserService(
 ) {
 
     @Transactional
-    fun register(request: RegisterRequest): UserResponse {
+    fun register(request: RegisterRequest): RegisterResponse {
         // Проверка уникальности username и email
         if (userRepository.existsByUsername(request.username)) {
             throw IllegalArgumentException("Username already exists")
@@ -37,7 +37,7 @@ class UserService(
 
         val savedUser = userRepository.save(user)
 
-        return UserResponse(
+        return RegisterResponse(
             userID = savedUser.userId!!,
             username = savedUser.username,
             email = savedUser.email,

@@ -16,10 +16,10 @@ class AuthService(
 ) {
     fun authenticate(request: LoginRequest): AuthResponse {
         val user = userRepository.findByEmail(request.email)
-            ?: throw BadCredentialsException("Invalid email or password")
+            ?: throw BadCredentialsException("Пользователь не найден")
 
         if (!passwordEncoder.matches(request.password, user.passwordHash)) {
-            throw BadCredentialsException("Invalid email or password")
+            throw BadCredentialsException("Неверный пароль")
         }
 
         val userDetails = userDetailsService.loadUserByUsername(user.email)
