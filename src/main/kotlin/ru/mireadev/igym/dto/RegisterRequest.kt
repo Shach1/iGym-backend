@@ -6,8 +6,7 @@ import java.time.LocalDate
 
 @Schema(description = "Запрос на регистрацию пользователя")
 data class RegisterRequest(
-    @field:Schema(
-        description = "Уникальное имя пользователя", example = "john_doe", required = true)
+    @field:Schema(description = "Уникальное имя пользователя", example = "john_doe", required = true)
     val username: String,
 
     @field:Schema(description = "Email пользователя", example = "user@example.com", required = true)
