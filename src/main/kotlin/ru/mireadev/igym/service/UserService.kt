@@ -36,9 +36,7 @@ class UserService(
             username = request.username,
             email = request.email,
             passwordHash = passwordHash,
-            fullName = request.fullName,
-            bio = request.bio,
-            dateOfBirth = request.dateOfBirth
+            fullName = request.fullName
         )
 
         val savedUser = userRepository.save(user)
@@ -48,8 +46,6 @@ class UserService(
             username = savedUser.username,
             email = savedUser.email,
             fullName = savedUser.fullName,
-            bio = savedUser.bio,
-            dateOfBirth = savedUser.dateOfBirth
         )
     }
 }

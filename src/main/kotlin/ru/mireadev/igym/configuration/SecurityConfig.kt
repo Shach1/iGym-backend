@@ -26,10 +26,10 @@ class SecurityConfig(
             .csrf { it.disable() }
             .authorizeHttpRequests { auth ->
                 auth
-                    //.anyRequest().permitAll()
                     // Публичные эндпоинты
                     .requestMatchers(
                         "/api/auth/**",
+                        "/api/profiles/**",
                         "/api/test-auth/public",
                         "/v3/api-docs/**",
                         "/swagger-ui/**",

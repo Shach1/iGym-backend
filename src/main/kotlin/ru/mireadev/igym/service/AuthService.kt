@@ -49,8 +49,6 @@ class AuthService(
             email = request.email,
             passwordHash = passwordEncoder.encode(request.password),
             fullName = request.fullName,
-            bio = request.bio,
-            dateOfBirth = request.dateOfBirth
         )
 
         val savedUser = userRepository.save(user)
@@ -60,9 +58,7 @@ class AuthService(
                 userID = savedUser.userId!!,
                 username = savedUser.username,
                 email = savedUser.email,
-                fullName = savedUser.fullName,
-                bio = savedUser.bio,
-                dateOfBirth = savedUser.dateOfBirth
+                fullName = savedUser.fullName
             )
         )
     }
