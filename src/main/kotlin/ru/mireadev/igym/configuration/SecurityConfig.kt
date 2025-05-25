@@ -29,7 +29,6 @@ class SecurityConfig(
                     // Публичные эндпоинты
                     .requestMatchers(
                         "/api/auth/**",
-                        "/api/profiles/**",
                         "/api/test-auth/public",
                         "/v3/api-docs/**",
                         "/swagger-ui/**",
