@@ -1,7 +1,6 @@
 package ru.mireadev.igym.entity
 
 import jakarta.persistence.*
-import org.hibernate.annotations.CreationTimestamp
 import ru.mireadev.igym.dto.RecommendationResponse
 import java.time.LocalDate
 
