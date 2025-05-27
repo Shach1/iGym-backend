@@ -1,10 +1,10 @@
 -- Таблица с пользователями
 CREATE TABLE IF NOT EXISTS users (
-    user_id SERIAL PRIMARY KEY AUTO_INCREMENT,                      -- Уникальный идентификатор пользователя
-    username VARCHAR(50) UNIQUE NOT NULL,                           -- Имя пользователя (уникальное)
-    email VARCHAR(100) UNIQUE NOT NULL,                             -- Адрес электронной почты (уникальный)
-    password_hash CHAR(64) NOT NULL,                                -- Хэш пароля для безопасного хранения
-    full_name VARCHAR(50) NOT NULL                                  -- Полное имя пользователя
+    user_id SERIAL PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password_hash CHAR(64) NOT NULL,
+    full_name VARCHAR(50) NOT NULL
 );
 -- Таблица профилей пользователей
 CREATE TABLE IF NOT EXISTS user_profiles(
@@ -25,8 +25,8 @@ CREATE TABLE IF NOT EXISTS reference_categories (
 CREATE TABLE IF NOT EXISTS recommendations (
     recommendation_id INT AUTO_INCREMENT PRIMARY KEY,
     category_id INT NOT NULL,
-    title VARCHAR(100) NOT NULL,
+    title VARCHAR(100) NOT NULL UNIQUE,
     content TEXT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_at DATE DEFAULT (CURRENT_DATE),
     FOREIGN KEY (category_id) REFERENCES reference_categories(category_id)
 );

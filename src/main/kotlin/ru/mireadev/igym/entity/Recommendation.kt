@@ -3,7 +3,7 @@ package ru.mireadev.igym.entity
 import jakarta.persistence.*
 import org.hibernate.annotations.CreationTimestamp
 import ru.mireadev.igym.dto.RecommendationResponse
-import java.time.LocalDateTime
+import java.time.LocalDate
 
 
 @Entity
@@ -25,8 +25,7 @@ data class Recommendation (
     val content: String = "Content",
 
     @Column(name = "created_at", updatable = false)
-    @CreationTimestamp
-    val createdAt: LocalDateTime = LocalDateTime.now()
+    val createdAt: LocalDate = LocalDate.now()
 ){
     constructor() : this(0)
 }

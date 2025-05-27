@@ -1,7 +1,7 @@
 package ru.mireadev.igym.dto
 
 import io.swagger.v3.oas.annotations.media.Schema
-import java.time.LocalDateTime
+import java.time.LocalDate
 
 @Schema(description = "Ответ с рекомендацией")
 data class RecommendationResponse(
@@ -27,5 +27,5 @@ data class RecommendationResponse(
         description = "Дата создания",
         example = "2025-05-25T17:44:45"
     )
-    val createdAt: LocalDateTime
+    val createdAt: LocalDate
 )

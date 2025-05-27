@@ -15,13 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import ru.mireadev.igym.dto.*
 import ru.mireadev.igym.service.AuthService
-import ru.mireadev.igym.service.UserService
 
 @RestController
 @RequestMapping("/api/auth")
 @Tag(name = "Аутентификация и регистрация", description = "Эндпоинты для входа и регистрации")
 class AuthController(
-    private val userService: UserService,
     private val authService: AuthService
 ) {
 

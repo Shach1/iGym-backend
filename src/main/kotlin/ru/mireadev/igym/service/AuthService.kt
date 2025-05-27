@@ -1,6 +1,5 @@
 package ru.mireadev.igym.service
 
-import org.springframework.security.authentication.BadCredentialsException
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 import ru.mireadev.igym.dto.*
@@ -91,7 +90,9 @@ class AuthService(
         val userDetails = userDetailsService.loadUserByUsername(user.email)
         return AuthResult.Success(
             AuthResponse(
-                token = jwtService.generateToken(userDetails),
+                userId = user.userId!!,
+                token = "Bearer " + jwtService.generateToken(userDetails),
+                fullName = user.fullName,
                 email = user.email,
                 username = user.username
             )
